@@ -25,7 +25,6 @@ vim.cmd("set wildmenu")
 vim.cmd("colorscheme nord")
 require('mini.pairs').setup()
 require('lualine').setup()
-require("telescope").setup()
 local lsp_zero = require('lsp-zero')
 require("mason").setup()
 lsp_zero.on_attach(function(client, bufnr)
@@ -68,3 +67,18 @@ cmp.setup({
     end,
   },
 })
+
+ local telescope = require('telescope')
+
+telescope.setup {
+
+pickers = {
+
+find_files = {
+
+hidden = true
+
+}
+
+}
+} 
