@@ -27,11 +27,14 @@ return {
         require'alpha'.setup(require'alpha.themes.theta'.config)
     end,
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
-      "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-  build = "cd app && yarn install",
-  init = function()
-    vim.g.mkdp_filetypes = { "markdown" }
+  "nvim-tree/nvim-tree.lua",
+  version = "*",
+  lazy = false,
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+  },
+  config = function()
+    require("nvim-tree").setup {}
   end,
-  ft = { "markdown" },
+
 }
