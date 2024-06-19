@@ -68,9 +68,8 @@ cmp.setup({
   },
 })
 
- local telescope = require('telescope')
-
-telescope.setup {
+local telescope = require('telescope')
+ telescope.setup {
 
 pickers = {
 
@@ -82,3 +81,14 @@ hidden = true
 
 }
 } 
+
+
+local wk = require("which-key")
+wk.register({
+  f = {
+    name = "file", -- optional group name
+    f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false }, -- additional options for creating the keymap
+    ["1"] = "which_key_ignore",  -- special label to hide it in the popup
+  },
+}, { prefix = "<leader>" })
